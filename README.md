@@ -43,5 +43,5 @@ This repository contains the backend for the **BSV Health Chain** project — a 
 1. **Clone the repository**
 
 ```bash
-git clone https://github.com/<your-username>/bsv-health-chain-backend.git
+git clone https://github.com/BSV-HealthChain/bsv-health-chain-backend.git
 cd bsv-health-chain-backend
