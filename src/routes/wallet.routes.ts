@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { WalletController } from "../controllers/wallet.controller";
+import { WalletController } from "../controllers/wallet.controller.js";
 
 const router = Router();
 

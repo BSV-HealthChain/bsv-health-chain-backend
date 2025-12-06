@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from "express";
-import { AuthService } from "../services/auth.service";
+import { AuthService } from "../services/auth.service.js";
 
 export function authJWT(req: Request, res: Response, next: NextFunction) {
   const token = req.headers.authorization?.split(" ")[1];

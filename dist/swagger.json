@@ -1,0 +1,15 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "BSV HealthChain API",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/auth/login": { "post": { "summary": "Login" } },
+        "/api/wallet/connect": { "get": { "summary": "Connect Wallet" } },
+        "/api/wallet/broadcast": { "post": { "summary": "Broadcast Transaction" } },
+        "/api/wallet/utxos/{address}": { "get": { "summary": "Query UTXOs" } },
+        "/api/health/submit-fhir": { "post": { "summary": "Submit FHIR data" } },
+        "/api/overlay/lookup-utxo/{txid}": { "get": { "summary": "Overlay Lookup" } }
+    }
+}
