@@ -1,18 +1,17 @@
 import jwt from "jsonwebtoken";
 import { User } from "../models/User.js";
-import { secrets } from "../../secrets.js";
 
 export class AuthService {
   static async issueJWT(userId: string) {
     return jwt.sign(
       { userId },
-      secrets.JWT_SECRET,
+      process.env.JWT_SECRET as string,
       { expiresIn: "5d" }
     );
   }
 
   static verifyJWT(token: string) {
-    return jwt.verify(token, secrets.JWT_SECRET);
+    return jwt.verify(token, process.env.JWT_SECRET as string);
   }
 
   static async findOrCreate(email: string) {
