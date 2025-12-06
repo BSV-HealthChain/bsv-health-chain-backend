@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "dev": "node --experimental-global-webcrypto --loader ts-node/esm src/server.ts",
-    "build": "tsc && cp src/secrets.json dist/src/secrets.json",
+    "build": "tsc",
     "start": "node dist/src/server.js"
   },
   "dependencies": {
