@@ -4,3 +4,4 @@ wallet.json
 secrets.json
 secrets.ts
 secret.js
+.env
