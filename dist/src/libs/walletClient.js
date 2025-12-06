@@ -1,22 +1,8 @@
 import { Setup } from "@bsv/wallet-toolbox";
 import { PrivateKey } from "@bsv/sdk";
-import fs from "fs";
-import path from "path";
-import { fileURLToPath } from "url";
-// Fix __dirname in ES modules
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-// Path to secrets.json
-const secretsPath = path.join(__dirname, "../secrets.json");
-if (!fs.existsSync(secretsPath)) {
-    throw new Error("❌ secrets.json not found! Generate dev keys before initializing the wallet.");
-}
-// Read and parse secrets.json
-const secrets = JSON.parse(fs.readFileSync(secretsPath, "utf8"));
-// Extract WIFs
-const ownerWIF = secrets.ownerPrivateKey.wif;
-const paymailWIF = secrets.paymailPrivateKey.wif;
-const identityWIF = secrets.identityPrivateKey.wif;
+const ownerWIF = process.env.OWNER_WIF;
+const paymailWIF = process.env.PAYMAIL_WIF;
+const identityWIF = process.env.IDENTITY_WIF;
 // Create PrivateKey instances
 const identityPrivateKey = PrivateKey.fromWif(identityWIF);
 const identityPublicKeyHex = identityPrivateKey.toPublicKey().toString(); // compressed hex
@@ -32,7 +18,7 @@ export async function initializeWalletClient() {
                 chain: "main",
                 identityKey: identityPublicKeyHex, // ✅ pass compressed public key hex
                 identityKey2: "", // optional
-                filePath: secretsPath,
+                filePath: "",
                 taalApiKey: "", // leave empty if not used
                 devKeys: {
                     ownerPrivateKey: ownerWIF,
@@ -44,7 +30,6 @@ export async function initializeWalletClient() {
         });
         console.log("======================================");
         console.log("🚀 Wallet Initialized Successfully");
-        console.log("📍 secrets.json path:", secretsPath);
         console.log("🔑 Identity Public Key:", identityPublicKeyHex);
         console.log("🏠 Identity Address:", identityAddress);
         console.log("📬 Owner Address:", PrivateKey.fromWif(ownerWIF).toAddress().toString());
