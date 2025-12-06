@@ -1,13 +1,14 @@
 import express from 'express';
 import cors from 'cors';
 import swaggerUi from 'swagger-ui-express';
-import swaggerDoc from '../swagger.json';
-import { errorHandler } from './middleware/errorHandler';
+import swaggerDoc from '../swagger.json' with { type: "json"};
+import { errorHandler } from './middleware/errorHandler.js';
 
-import authRoutes from './routes/auth.routes';
-import walletRoutes from './routes/wallet.routes';
-import healthDataRoutes from './routes/healthData.routes';
-import overlayRoutes from './routes/overlay.routes';
+import authRoutes from './routes/auth.routes.js';
+import walletRoutes from './routes/wallet.routes.js';
+import healthDataRoutes from './routes/healthData.routes.js';
+import overlayRoutes from './routes/overlay.routes.js';
+import { assert } from 'console';
 
 export const app = express();
 

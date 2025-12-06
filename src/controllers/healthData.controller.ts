@@ -1,4 +1,4 @@
-import { HealthDataService } from "../services/healthData.service";
+import { HealthDataService } from "../services/healthData.service.js";
 import { Request, Response } from "express";
 
 export class HealthDataController {

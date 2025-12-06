@@ -1,5 +1,5 @@
 import axios from "axios";
-import { CONFIG } from "../config/config";
+import { CONFIG } from "../config/config.js";
 
 export class WalletService {
   static async getUtxos(address: string) {

@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { OverlayService } from "../services/overlay.service";
+import { OverlayService } from "../services/overlay.service.js";
 
 export class OverlayController {
   static async lookupUTXO(req: Request, res: Response) {
